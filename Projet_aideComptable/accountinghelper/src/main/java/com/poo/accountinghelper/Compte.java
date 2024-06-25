@@ -1,4 +1,4 @@
-package Projet_aideComptable;
+package com.poo.accountinghelper;
 
 public class Compte {
     private int id;
@@ -13,4 +13,5 @@ public class Compte {
     public void reconciliationBancaire(){
         
     }
+    
 }

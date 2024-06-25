@@ -1,9 +1,9 @@
-package Projet_aideComptable;
+package com.poo.accountinghelper;
 
 import java.util.Date;
 
 public class Paiement {
-    private int id;
+      private int id;
     private Facture facture;
     private Date dateTime;
     private double montant;
@@ -22,5 +22,4 @@ public class Paiement {
     public void genererRappels() {
      
     }
-    
 }

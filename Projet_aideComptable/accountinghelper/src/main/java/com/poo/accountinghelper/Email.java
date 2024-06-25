@@ -1,4 +1,4 @@
-package Projet_aideComptable;
+package com.poo.accountinghelper;
 
 import java.util.Date;
 
@@ -12,6 +12,5 @@ public class Email {
 
     public void envoyerFacture() {
       
-    }
-    
+    } 
 }
