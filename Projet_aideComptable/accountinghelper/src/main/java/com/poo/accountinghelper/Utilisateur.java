@@ -1,11 +1,18 @@
 package com.poo.accountinghelper;
 
 public class Utilisateur {
-    private int id;
+   // private int id;
     private String nom;
     private String adresse;
-    private Email email;
+    //private Email email;
     private String role;
+
+public Utilisateur(String nom, String adresse, String role){
+    this.nom = nom;
+    this.adresse = adresse;
+    //this.email = email;
+    this.role = role;
+}
 
 public void createUser(){
     System.out.println("Entrer votre nom :" );
