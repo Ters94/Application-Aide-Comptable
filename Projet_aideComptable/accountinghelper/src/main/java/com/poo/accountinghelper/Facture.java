@@ -1,12 +1,19 @@
 package com.poo.accountinghelper;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Facture {
       private int id;
     private Client client;
-    private Date dateTime;
+    private LocalDate date;
     private double montant;
     private String etatFacture;
+    
+    public Facture (LocalDate date, String etatFacture,double montant, Client client ){
+      this.date = date;
+      this.etatFacture = etatFacture;
+      this.montant = montant;
+      this.client = client;
+    }
 
 }
