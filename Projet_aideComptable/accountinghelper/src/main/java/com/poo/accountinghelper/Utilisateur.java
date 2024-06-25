@@ -21,4 +21,19 @@ public void createAccount(){
 public void manageAccount(){
 
 }
+public int getId() {
+    return id;
+}
+public String getNom() {
+    return nom;
+}
+public String getAdresse() {
+    return adresse;
+}
+public Email getEmail() {
+    return email;
+}
+public String getRole() {
+    return role;
+}
 }
