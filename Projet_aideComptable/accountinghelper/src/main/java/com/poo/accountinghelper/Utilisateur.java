@@ -7,6 +7,10 @@ public class Utilisateur {
     //private Email email;
     private String role;
 
+public Utilisateur(){
+
+}
+//constructeurs à enlever on le laisse par defaut
 public Utilisateur(String nom, String adresse, String role){
     this.nom = nom;
     this.adresse = adresse;
@@ -28,18 +32,18 @@ public void createAccount(){
 public void manageAccount(){
 
 }
-public int getId() {
+/*public int getId() {
     return id;
-}
+}*/
 public String getNom() {
     return nom;
 }
 public String getAdresse() {
     return adresse;
 }
-public Email getEmail() {
+/*public Email getEmail() {
     return email;
-}
+}*/
 public String getRole() {
     return role;
 }

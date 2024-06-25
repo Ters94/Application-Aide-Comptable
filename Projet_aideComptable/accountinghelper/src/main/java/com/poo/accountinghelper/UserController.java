@@ -11,7 +11,7 @@ public class UserController {
     //on a rajouter le path parcequ'on a pris le id du getmapping precedent 
     public ResponseEntity<Utilisateur> getUtilisateur(@PathVariable int id){
         //essai de creer un objet
-        Utilisateur result = new Utilisateur();
+        Utilisateur result = new Utilisateur("mon Nom","mon Adresse","mon role");
         return null;
 
     }
