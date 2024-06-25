@@ -7,9 +7,9 @@ public class Facture {
     private Client client;
     private LocalDate date;
     private double montant;
-    private String etatFacture;
+    private boolean etatFacture;
     
-    public Facture (LocalDate date, String etatFacture,double montant, Client client ){
+    public Facture (LocalDate date, boolean etatFacture,double montant, Client client ){
       this.date = date;
       this.etatFacture = etatFacture;
       this.montant = montant;
@@ -51,11 +51,11 @@ public void setMontant(double montant) {
   this.montant = montant;
 }
 
-public String getEtatFacture() {
+public boolean getEtatFacture() {
   return etatFacture;
 }
 
-public void setEtatFacture(String etatFacture) {
+public void setEtatFacture(boolean etatFacture) {
   this.etatFacture = etatFacture;
 }
 }
