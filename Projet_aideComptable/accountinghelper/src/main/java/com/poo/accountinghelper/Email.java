@@ -1,40 +1,42 @@
 package com.poo.accountinghelper;
 
-import java.util.Date;
-
 public class Email {
-    private int id;
-    private Client destinataire;
-    public int getId() {
-        return id;
+    private String recipient;
+    private String subject;
+    private String body;
+
+    public Email(String recipient, String subject, String body) {
+        this.recipient = recipient;
+        this.subject = subject;
+        this.body = body;
     }
 
-    public Client getDestinataire() {
-        return destinataire;
+    public void envoyerEmail() {
+        System.out.println("Email envoyé à " + recipient + " avec pour sujet: " + subject);
     }
 
-    public Date getDatetime() {
-        return datetime;
+    // Getters and Setters
+    public String getRecipient() {
+        return recipient;
     }
 
-    public String getSujet() {
-        return sujet;
+    public void setRecipient(String recipient) {
+        this.recipient = recipient;
     }
 
-    public String getCorps() {
-        return corps;
+    public String getSubject() {
+        return subject;
     }
 
-    public Facture getFacture() {
-        return facture;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
-    private Date datetime;
-    private String sujet;
-    private String corps;
-    private Facture facture;
+    public String getBody() {
+        return body;
+    }
 
-    public void envoyerFacture() {
-      
-    } 
+    public void setBody(String body) {
+        this.body = body;
+    }
 }
