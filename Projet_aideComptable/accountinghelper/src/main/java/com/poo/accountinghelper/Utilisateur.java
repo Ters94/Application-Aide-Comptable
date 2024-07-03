@@ -1,55 +1,59 @@
 package com.poo.accountinghelper;
 
-import jakarta.validation.constraints.NotEmpty;
+import javax.persistence.*;
+import java.util.List;
 
-
+@Entity
 public class Utilisateur {
-   // private int id;
-    @NotEmpty
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String nom;
-    @NotEmpty
-    private String adresse;
-    //private Email email;
-    private String role;
+    private String email;
+    private double solde;
 
-public Utilisateur(){
+    @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL)
+    private List<Compte> comptes;
 
-}
-//constructeurs à enlever on le laisse par defaut
-public Utilisateur(String nom, String adresse, String role){
-    this.nom = nom;
-    this.adresse = adresse;
-    //this.email = email;
-    this.role = role;
-}
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
 
-public void createUser(){
-    System.out.println("Entrer votre nom :" );
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getNom() {
+        return nom;
+    }
 
-}
-public void managePermission(){
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-}
-public void createAccount(){
+    public String getEmail() {
+        return email;
+    }
 
-}
-public void manageAccount(){
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-}
-/*public int getId() {
-    return id;
-}*/
-public String getNom() {
-    return nom;
-}
-public String getAdresse() {
-    return adresse;
-}
-/*public Email getEmail() {
-    return email;
-}*/
-public String getRole() {
-    return role;
-}
+    public double getSolde() {
+        return solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
+    }
+
+    public List<Compte> getComptes() {
+        return comptes;
+    }
+
+    public void setComptes(List<Compte> comptes) {
+        this.comptes = comptes;
+    }
 }
