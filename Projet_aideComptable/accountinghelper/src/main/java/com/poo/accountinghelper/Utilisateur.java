@@ -1,8 +1,13 @@
 package com.poo.accountinghelper;
 
+import jakarta.validation.constraints.NotEmpty;
+
+
 public class Utilisateur {
    // private int id;
+    @NotEmpty
     private String nom;
+    @NotEmpty
     private String adresse;
     //private Email email;
     private String role;
