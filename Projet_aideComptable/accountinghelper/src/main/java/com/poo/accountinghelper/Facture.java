@@ -1,61 +1,103 @@
 package com.poo.accountinghelper;
 
-import java.time.LocalDate;
+import javax.persistence.*;
+import java.util.Date;
 
+@Entity
 public class Facture {
-      private int id;
-    private Client client;
-    private LocalDate date;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String client;
     private double montant;
+    private Date date;
     private boolean etatFacture;
-    
-    public Facture (LocalDate date, boolean etatFacture,double montant, Client client ){
-      this.date = date;
-      this.etatFacture = etatFacture;
-      this.montant = montant;
-      this.client = client;
+
+    @ManyToOne
+    private Client clientDetails;
+
+    // Constructeurs
+    public Facture() {
     }
-/*------------------------------------ */
-/* Getters and setters */
-/*---------------------------------------- */
 
-public int getId() {
-  return id;
-}
+    public Facture(String client, double montant, Date date, boolean etatFacture) {
+        this.client = client;
+        this.montant = montant;
+        this.date = date;
+        this.etatFacture = etatFacture;
+    }
 
-public void setId(int id) {
-  this.id = id;
-}
+    // Méthodes métier
+    public void creerFacture() {
+        System.out.println("Création de la facture: " + this);
+    }
 
-public Client getClient() {
-  return client;
-}
+    public void editerFacture(double nouveauMontant) {
+        this.montant = nouveauMontant;
+        System.out.println("Édition de la facture: " + this);
+    }
 
-public void setClient(Client client) {
-  this.client = client;
-}
+    public void supprimerFacture() {
+        System.out.println("Suppression de la facture: " + this);
+    }
 
-public LocalDate getDate() {
-  return date;
-}
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
 
-public void setDate(LocalDate date) {
-  this.date = date;
-}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-public double getMontant() {
-  return montant;
-}
+    public String getClient() {
+        return client;
+    }
 
-public void setMontant(double montant) {
-  this.montant = montant;
-}
+    public void setClient(String client) {
+        this.client = client;
+    }
 
-public boolean getEtatFacture() {
-  return etatFacture;
-}
+    public double getMontant() {
+        return montant;
+    }
 
-public void setEtatFacture(boolean etatFacture) {
-  this.etatFacture = etatFacture;
-}
+    public void setMontant(double montant) {
+        this.montant = montant;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public boolean isEtatFacture() {
+        return etatFacture;
+    }
+
+    public void setEtatFacture(boolean etatFacture) {
+        this.etatFacture = etatFacture;
+    }
+
+    public Client getClientDetails() {
+        return clientDetails;
+    }
+
+    public void setClientDetails(Client clientDetails) {
+        this.clientDetails = clientDetails;
+    }
+
+    @Override
+    public String toString() {
+        return "Facture{" +
+                "id=" + id +
+                ", client='" + client + '\'' +
+                ", montant=" + montant +
+                ", date=" + date +
+                ", etatFacture=" + etatFacture +
+                '}';
+    }
 }
