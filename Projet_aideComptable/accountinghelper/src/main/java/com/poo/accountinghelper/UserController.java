@@ -1,22 +1,31 @@
 package com.poo.accountinghelper;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
-    @GetMapping("/utilisateur/{id}")
-    // pour retourner un objet : 
-    //on a rajouter le path parcequ'on a pris le id du getmapping precedent 
-    public ResponseEntity<Utilisateur> getUtilisateur(@PathVariable int id){
-        //essai de creer un objet
-        Utilisateur result = new Utilisateur("mon Nom","mon Adresse","mon role");
-        return ResponseEntity.ok().body(result);
-        //ok:http de retour :200 et le result renvoie un objet en JSon et pour que sa fonctionne il faut mettre @restController
 
+    @PostMapping("/create")
+    public void createUser(@RequestBody Utilisateur utilisateur) {
+        // Logique pour créer un utilisateur
+        System.out.println("Utilisateur créé: " + utilisateur);
     }
 
+    @GetMapping("/{id}")
+    public Utilisateur getUser(@PathVariable int id) {
+        // Logique pour récupérer un utilisateur
+        Utilisateur utilisateur = new Utilisateur();
+        utilisateur.setId(id);
+        utilisateur.setNom("Nom Exemple");
+        utilisateur.setEmail("exemple@email.com");
+        return utilisateur;
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable int id) {
+        // Logique pour supprimer un utilisateur
+        System.out.println("Utilisateur supprimé avec ID: " + id);
+    }
 }
+
